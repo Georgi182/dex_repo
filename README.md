@@ -1,4 +1,3 @@
 # dex_repo
 
-New TRY
-TEST
+Another great learning experience, and Vanya is a smelly bitch!!
