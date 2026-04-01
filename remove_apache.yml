@@ -1,0 +1,21 @@
+---
+#- name: Инсталиране и конфигуриране на Apache в openSUSE
+- hosts: all
+  become: yes  # Изпълнява задачите със sudo
+
+  tasks:
+    - name: update repo_index
+      zypper:
+        name: '*'
+        state: latest
+        update_cache: yes
+    - name: Инсталиране на пакета apache2
+      community.general.zypper:
+        name: apache2
+        state: absent
+        update_cache: yes
+    - name: inst support for apache2 PHP
+      zypper:
+        name: apache2-mod_php8
+        state: absent
+        update_cache: yes
