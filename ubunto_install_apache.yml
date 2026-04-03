@@ -1,0 +1,25 @@
+---
+#- name: Инсталиране и конфигуриране на Apache в openSUSE
+- hosts: all
+  become: yes  # Изпълнява задачите със sudo
+
+  tasks:
+    - name: update repo_index
+      apt:
+        update_cache: yes
+    - name: upgrade ubuntu-pro-client
+      apt:
+        name: ubuntu-pro-client
+        state: latest
+    - name: upgrade all pkg
+      apt:
+        name: "*"
+        state: latest
+    - name: Инсталиране на пакета apache2
+      apt:
+        name: apache2
+        state: latest
+    - name: inst support for apache2 PHP
+      apt:
+        name: libapache2-mod-php
+        state: latest
